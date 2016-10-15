@@ -1,6 +1,12 @@
+package demo
+
+import org.springframework.context.ApplicationContext
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
+
 fun main(args: Array<String>) {
-    val connection: DatabaseConnection = MySqlConnection()
-    val action: SaveUser = SaveUser(connection)
+    val context: ApplicationContext = AnnotationConfigApplicationContext(Configuration::class.java)
+
+    val action: SaveUser = context.getBean(SaveUser::class.java)
 
     action.execute()
 }
