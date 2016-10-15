@@ -8,5 +8,5 @@ import org.springframework.context.annotation.Configuration
 @ComponentScan(basePackages = arrayOf("demo"))
 open class Configuration {
     @Bean
-    open fun connection(): DatabaseConnection = MySqlConnection()
+    open fun connection(): DatabaseConnection = PostgresConnection()
 }

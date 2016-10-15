@@ -31,3 +31,10 @@ class MySqlConnection() : DatabaseConnection {
     }
 
 }
+
+class PostgresConnection() : DatabaseConnection {
+    override fun execute(sql: String) {
+        println("Executing $sql against Postgres")
+    }
+
+}
