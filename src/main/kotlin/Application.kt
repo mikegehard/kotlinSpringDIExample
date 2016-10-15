@@ -1,7 +1,10 @@
 package demo
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import org.springframework.stereotype.Component
+
 
 fun main(args: Array<String>) {
     val context: ApplicationContext = AnnotationConfigApplicationContext(Configuration::class.java)
@@ -11,7 +14,8 @@ fun main(args: Array<String>) {
     action.execute()
 }
 
-class SaveUser(val dbConnection: DatabaseConnection) {
+@Component
+class SaveUser(@Autowired val dbConnection: DatabaseConnection) {
     fun execute() {
         dbConnection.execute("insert into users")
     }
